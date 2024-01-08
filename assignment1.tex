@@ -1,0 +1,75 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[nottoc,numbib]{tocbibind} % makes the BibTeX references section appear in the table of contents
+\usepackage[inline]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{framed}
+% eventually make left/right margins equal
+\usepackage[top=0.6in,bottom=0.6in,left=1in,right=1in]{geometry}
+\usepackage{dsfont}
+
+
+
+\usepackage[textwidth=0.7in]{todonotes}
+
+\usepackage[hidelinks]{hyperref} %this needs to be loaded last!
+
+\title{Assignment \#1 \\ \large COMP-486 Machine Learning}
+\author{Xavier Silva}
+
+\begin{document}
+\maketitle
+%\tableofcontents
+% \newpage
+\section{Answers to Questions}
+\begin{enumerate}
+	% Question 1
+	\item Compare the differences of the three categories (Explain, model examples, applications)
+	\begin{enumerate}
+		\item Supervised Learning
+		\item Unsupervised Learning
+		\item Reinforcement Learning
+		\item Semi-supervised Learning
+	\end{enumerate}
+	
+	% Question 2
+	\item Use the code in chapter 1 to implement the Linear Regression model and \( k \)-nearest neighbors regression \( (k=4) \) using the data in \texttt{lifesat.csv}, then:
+	\begin{enumerate}
+		\item What is the life satisfaction prediction for Mexico with GDP = \$59,545.3 using Model-based learning?
+		\item What is the life satisfaction prediction for Mexico with GDP = \$59,545.3 using Instance-based learning?
+		\item What is the life satisfaction prediction for Qatar with GDP = \$5009,545.3 using Model-based learning?
+		\item What is the life satisfaction prediction for Qatar with GDP = \$5009,545.3
+		using Instance-based learning?
+		\item What do you notice? Why? (Explain).
+		\item According to the output (predictions, try some new inputs), which model would you adapt? Why?
+	\end{enumerate}
+	
+	% Question 3
+	\item Compare \textbf{Overfitting} and \textbf{Underfitting} the training data:
+	\begin{enumerate}
+		\item Definition
+		\item Reasons
+		\item Solutions
+	\end{enumerate}
+	
+	% Question 4
+	\item What is:
+	\begin{enumerate}
+		\item Test set?
+		\item Validation set?
+		\item Train-dev set?
+		\item Why would you want to use each of them?
+		\item How would you use each of them?
+	\end{enumerate}
+\end{enumerate}
+	
+\end{document}
