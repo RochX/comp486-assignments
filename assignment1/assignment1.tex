@@ -19,7 +19,7 @@
 
 
 
-\usepackage[textwidth=0.7in]{todonotes}
+\usepackage{todonotes}
 
 \usepackage[hidelinks]{hyperref} %this needs to be loaded last!
 
@@ -30,15 +30,49 @@
 \maketitle
 %\tableofcontents
 % \newpage
-\section{Answers to Questions}
+\section*{Answers to Questions}
 \begin{enumerate}
 	% Question 1
 	\item Compare the differences of the three categories (Explain, model examples, applications)
 	\begin{enumerate}
 		\item Supervised Learning
+		\begin{itemize}
+			\item Explanation:
+			The training data for the machine learning algorithm includes its solutions for each instance.
+			Based upon this labeled data, it can decide what should be done when given a new instance.
+			\item Model Examples:
+			Classification and regression.
+			\item Applications:
+			Classification tasks such as deciding whether an email is spam.
+			Predicting a target value, such as price of a car given its individual features (regression task).
+		\end{itemize}
 		\item Unsupervised Learning
+		\begin{itemize}
+			\item Explanation:
+			The training data is unlabeled and the system tries to learn without a teacher.
+			\item Model examples:
+			Clustering, visualization, anomaly detection (outliers), novelty detection (new instances different from all others), association rule learning (discovering hidden relations from data).
+			\item Applications:
+			Automatically detecting groups and patterns within data, creating useful plots from complicated data, credit card fraud detection.
+		\end{itemize}
 		\item Reinforcement Learning
+		\begin{itemize}
+			\item Explanation:
+			The learning system is called an \emph{agent}, it performs actions within its environment and it rewarded/penalized for its actions.
+			It learns the best strategy to maximize rewards.
+			\item Model examples: \todo{give examples}
+			\item Applications:
+			AI that learns how to play games. \todo{give more examples}
+		\end{itemize}
 		\item Semi-supervised Learning
+		\begin{itemize}
+			\item Explanation:
+			Only some instances of the training data is labeled while the rest is unlabeled.
+			\item Model examples:
+			Self-supervised learning
+			\item Applications:
+			Sorting family photos, it will recognize the patterns of who appears in which photos. The user is required to label the people the system clusters together.
+		\end{itemize}
 	\end{enumerate}
 	
 	% Question 2
@@ -57,18 +91,34 @@
 	\item Compare \textbf{Overfitting} and \textbf{Underfitting} the training data:
 	\begin{enumerate}
 		\item Definition
+		\begin{itemize}
+			\item Overfitting: The model performs well on the training data, but does not handle new data well. The model does not generalize well.
+			\item Underfitting is the opposite of overfitting. 
+		\end{itemize}
 		\item Reasons
+		\begin{itemize}
+			\item Overfitting occurs when the model is too complex relative to the amount and noisiness of the training data.
+			\item Underfitting occurs because the model selected is not complex enough to understand the structure of the data.
+		\end{itemize}
 		\item Solutions
+		\begin{itemize}
+			\item Overfitting can be fixed by either simplifying the model, gathering more data, or cleaning up the already existing data.
+			\item Underfitting can be fixed by either selecting a more powerful model, changing the features given to the learning algorithm, or reducing the constraints on the model.
+		\end{itemize}
 	\end{enumerate}
 	
 	% Question 4
 	\item What is:
 	\begin{enumerate}
-		\item Test set?
-		\item Validation set?
-		\item Train-dev set?
-		\item Why would you want to use each of them?
-		\item How would you use each of them?
+		\item Test set? \\
+		A \emph{test set} is a subset of the data which is not used to train the model, but rather to test the model after training is completed. The error rate on the test set is called the generalization error.
+		\item Validation set? \\
+		A \emph{validitation set} is a subset of the data used during the process of selecting the best model.
+		It is used as an intermediate training set that is eventually used to retrain the best model.
+		\item Train-dev set? \\
+		A \emph{train-dev set} is a further subset of the training data which is used to evaluate the model before using the validation set.
+		\item Why would you want to use each of them? \todo{do this part}
+		\item How would you use each of them? \todo{and this part}
 	\end{enumerate}
 \end{enumerate}
 	
