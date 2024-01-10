@@ -302,3 +302,6 @@ TSWLatexianTemp*
 
 # Ignoring output PDFs (for now)
 *.pdf
+
+# MacOS DS_store
+.DS_store
