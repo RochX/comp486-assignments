@@ -53,7 +53,7 @@
 			\item Model examples:
 			Clustering, visualization, anomaly detection (outliers), novelty detection (new instances different from all others), association rule learning (discovering hidden relations from data).
 			\item Applications:
-			Automatically detecting groups and patterns within data, creating useful plots from complicated data, credit card fraud detection.
+			Automatically detecting groups and patterns within data, creating useful plots from complicated data (e.g. dimensionality reduction), credit card fraud detection.
 		\end{itemize}
 		\item Reinforcement Learning
 		\begin{itemize}
@@ -78,13 +78,33 @@
 	% Question 2
 	\item Use the code in chapter 1 to implement the Linear Regression model and \( k \)-nearest neighbors regression \( (k=4) \) using the data in \texttt{lifesat.csv}, then:
 	\begin{enumerate}
-		\item What is the life satisfaction prediction for Mexico with GDP = \$59,545.3 using Model-based learning?
-		\item What is the life satisfaction prediction for Mexico with GDP = \$59,545.3 using Instance-based learning?
-		\item What is the life satisfaction prediction for Qatar with GDP = \$5009,545.3 using Model-based learning?
+		\item What is the life satisfaction prediction for Mexico with GDP = \$59,545.3 using Model-based learning? \\
+			Using a linear regression model, Mexico has a life satisfaction of 7.79.
+			
+		\item What is the life satisfaction prediction for Mexico with GDP = \$59,545.3 using Instance-based learning? \\
+			Using the \( k \)-nearest neighbors model with \( k=4 \), Mexico has a life satisfaction of 7.35.
+			
+		\item What is the life satisfaction prediction for Qatar with GDP = \$5009,545.3 using Model-based learning? \\
+			Using a linear regression model, Qatar has a life satisfaction of 343.34.
+			
 		\item What is the life satisfaction prediction for Qatar with GDP = \$5009,545.3
-		using Instance-based learning?
-		\item What do you notice? Why? (Explain).
+		using Instance-based learning? \\
+			Using the \( k \)-nearest neighbors model with \( k=4 \), Qatar has a life satisfaction of 7.35.
+			
+		\item What do you notice? Why? (Explain). \\
+			Both of these countries have high GDPs compared to the data set used to train the models.
+			When using the linear regression model Qatar has a prediction for life satisfaction that makes no sense.
+			One would expect the life satisfaction to be a measure on the range of 0 to 10 (or other similar values).
+			A life satisfaction of 343.34 does not make sense here.
+			The reason we get such a high number is that Qatar is a huge outlier of our data, and so the linear regression attempts to predict using incorrect assumptions.
+			
+			When using the instance-based model, Mexico and Qatar end up having the same life satisfaction.
+			This occurs because of the fact that both Mexico and Qatar have high GDPs, their \( k=4 \) closest neighbors end up being the same data points.
+			Since they use the same data points for their average, we get the same life satisfaction.
+			
 		\item According to the output (predictions, try some new inputs), which model would you adapt? Why?
+		
+		Of these two models, I would use the \( k \)-nearest neighbors regression model. \todo{explain why}
 	\end{enumerate}
 	
 	% Question 3
