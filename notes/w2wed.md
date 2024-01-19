@@ -83,3 +83,5 @@ Data that does not represent all of the possible features
 
 ### Poor-Quality Data
 Data has numerous outliers, errors, missing points.
+
+Continued in W2 Fri...
