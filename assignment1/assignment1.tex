@@ -60,16 +60,15 @@
 			\item Explanation:
 			The learning system is called an \emph{agent}, it performs actions within its environment and it rewarded/penalized for its actions.
 			It learns the best strategy to maximize rewards.
-			\item Model examples: \todo{give examples}
 			\item Applications:
-			AI that learns how to play games. \todo{give more examples}
+			AI that learns how to play games, training robots to walk.
 		\end{itemize}
 		\item Semi-supervised Learning
 		\begin{itemize}
 			\item Explanation:
 			Only some instances of the training data is labeled while the rest is unlabeled.
 			\item Model examples:
-			Self-supervised learning
+			Self-supervised learning.
 			\item Applications:
 			Sorting family photos, it will recognize the patterns of who appears in which photos. The user is required to label the people the system clusters together.
 		\end{itemize}
@@ -104,7 +103,10 @@
 			
 		\item According to the output (predictions, try some new inputs), which model would you adapt? Why?
 		
-		Of these two models, I would use the \( k \)-nearest neighbors regression model. \todo{explain why}
+		Of these two models, I would use the \( k \)-nearest neighbors regression model. 
+		I would choose this model because the trend of the data does not seem to be fully linear when the GDP per capita is higher (around \$50,000).
+		It would also more reasonable predictions for outliers, such as in the given example of Qatar, where a linear regression gave an unreasonable answer while the \( k \)-nearest neighbors gave a more reasonable answer (even if it isn't close to what the true life satisfaction of Qatar).
+		Thus by using a \( k \)-nearest neighbors we can capture this nonlinear nature of the data.
 	\end{enumerate}
 	
 	% Question 3
@@ -131,14 +133,38 @@
 	\item What is:
 	\begin{enumerate}
 		\item Test set? \\
-		A \emph{test set} is a subset of the data which is not used to train the model, but rather to test the model after training is completed. The error rate on the test set is called the generalization error.
+		A \emph{test set} is a subset of the data which is not used to train the model, but rather to test the model after training is completed. 
+		The test set should be as representative as possible of new data that could be put into the model. 
+		The error rate on the test set is called the generalization error.
+		
 		\item Validation set? \\
-		A \emph{validitation set} is a subset of the data used during the process of selecting the best model.
+		A \emph{validitation set} is a subset of the training data used during the process of selecting the best model.
 		It is used as an intermediate training set that is eventually used to retrain the best model.
+		Each time the model is trained a different validation set is picked from the training data.
+		For example of the training data: we would split the training data into two parts, the data used to train the model and the validation set.
+		The validation set should be as representative as possible of new data that could be put into the model. 
+		
 		\item Train-dev set? \\
 		A \emph{train-dev set} is a further subset of the training data which is used to evaluate the model before using the validation set.
-		\item Why would you want to use each of them? \todo{do this part}
-		\item How would you use each of them? \todo{and this part}
+		
+		\item Why would you want to use each of them? \\
+		We want to use a test set because we want to be able to evaluate whether our model generalizes to new data. By using a test set we can measure how well our model generalizes, since we know what the expected values of the test data should be.
+		
+		We want to use a validation set because it allows us to compare the performance of different models. 
+		By using a validation set, we can see which model performs best before testing the model on the test set.
+		
+		A train-dev set should be used when data that is representative of new data is scarce.
+		It is useful because it allows us to test whether the model overfits the training data without having to use the scarce testing data.
+		
+		\item How would you use each of them? \\
+		In order to use each of these sets, we would split up our data into a test set, validation set, train-dev set, and training data.
+		The test and validation sets should be representative of new data that the model will predict.
+		In order to use these sets, we first need to have a list of models that we will be testing.
+		First, we train each model on the training data.
+		Then, we test each model using the train-dev set in order to ensure that the models do not overfit the training data.
+		After we have trained the models and used the train-dev set, we use the validation set to measure the performance of our models.
+		With this performance measure, we select the best model.
+		Finally, we use the test set to measure performance of the best model before it is deployed for real world use.
 	\end{enumerate}
 \end{enumerate}
 	
