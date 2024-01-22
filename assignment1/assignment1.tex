@@ -68,7 +68,7 @@
 			\item Explanation:
 			Only some instances of the training data is labeled while the rest is unlabeled.
 			\item Model examples:
-			Self-supervised learning.
+			A clustering model (unsupervised) to first label the data based upon patterns, then using a classification model (supervised) to predict the category of new data.
 			\item Applications:
 			Sorting family photos, it will recognize the patterns of who appears in which photos. The user is required to label the people the system clusters together.
 		\end{itemize}
@@ -91,21 +91,21 @@
 			Using the \( k \)-nearest neighbors model with \( k=4 \), Qatar has a life satisfaction of 7.35.
 			
 		\item What do you notice? Why? (Explain). \\
-			Both of these countries have high GDPs compared to the data set used to train the models.
-			When using the linear regression model Qatar has a prediction for life satisfaction that makes no sense.
-			One would expect the life satisfaction to be a measure on the range of 0 to 10 (or other similar values).
+			Both of these countries have high GDPs compared to the training set.
+			When using the linear regression model, Qatar has a prediction for life satisfaction of 343.34.
+			This makes no sense, as with the context of the training data, one would expect the life satisfaction to be a measure on the range of 0 to 10 (or other similar values).
 			A life satisfaction of 343.34 does not make sense here.
-			The reason we get such a high number is that Qatar is a huge outlier of our data, and so the linear regression attempts to predict using incorrect assumptions.
+			The reason we get such a high number is that Qatar's GDP is a huge outlier of our data, and so the linear regression attempts to predict using the incorrect assumption that GDP and life satisfaction are in a linear correspondence.
 			
-			When using the instance-based model, Mexico and Qatar end up having the same life satisfaction.
-			This occurs because of the fact that both Mexico and Qatar have high GDPs, their \( k=4 \) closest neighbors end up being the same data points.
+			When using the instance-based model, Mexico and Qatar end up having the exact same life satisfaction.
+			This occurs because of the fact that both Mexico and Qatar have high GDPs compared to the training data, which causes their \( k=4 \) closest neighbors to be the same.
 			Since they use the same data points for their average, we get the same life satisfaction.
 			
 		\item According to the output (predictions, try some new inputs), which model would you adapt? Why?
 		
 		Of these two models, I would use the \( k \)-nearest neighbors regression model. 
 		I would choose this model because the trend of the data does not seem to be fully linear when the GDP per capita is higher (around \$50,000).
-		It would also more reasonable predictions for outliers, such as in the given example of Qatar, where a linear regression gave an unreasonable answer while the \( k \)-nearest neighbors gave a more reasonable answer (even if it isn't close to what the true life satisfaction of Qatar).
+		It would also give more reasonable predictions for outliers, such as in the given example of Qatar, where a linear regression gave an unreasonable answer while the \( k \)-nearest neighbors gave a more reasonable answer (even if it isn't close to the true life satisfaction of Qatar).
 		Thus by using a \( k \)-nearest neighbors we can capture this nonlinear nature of the data.
 	\end{enumerate}
 	
@@ -115,7 +115,7 @@
 		\item Definition
 		\begin{itemize}
 			\item Overfitting: The model performs well on the training data, but does not handle new data well. The model does not generalize well.
-			\item Underfitting is the opposite of overfitting. 
+			\item Underfitting is the opposite of overfitting. The model does not generalize well, but for the opposite reasons of overfitting.
 		\end{itemize}
 		\item Reasons
 		\begin{itemize}
@@ -141,7 +141,7 @@
 		A \emph{validitation set} is a subset of the training data used during the process of selecting the best model.
 		It is used as an intermediate training set that is eventually used to retrain the best model.
 		Each time the model is trained a different validation set is picked from the training data.
-		For example of the training data: we would split the training data into two parts, the data used to train the model and the validation set.
+		For example, we would split the training data into two parts, the data used to train the model and the validation set.
 		The validation set should be as representative as possible of new data that could be put into the model. 
 		
 		\item Train-dev set? \\
@@ -160,8 +160,8 @@
 		In order to use each of these sets, we would split up our data into a test set, validation set, train-dev set, and training data.
 		The test and validation sets should be representative of new data that the model will predict.
 		In order to use these sets, we first need to have a list of models that we will be testing.
-		First, we train each model on the training data.
-		Then, we test each model using the train-dev set in order to ensure that the models do not overfit the training data.
+		Now we train each model on the training data.
+		Then we test each model using the train-dev set in order to ensure that the models do not overfit the training data.
 		After we have trained the models and used the train-dev set, we use the validation set to measure the performance of our models.
 		With this performance measure, we select the best model.
 		Finally, we use the test set to measure performance of the best model before it is deployed for real world use.
