@@ -35,3 +35,7 @@ Steps:
 - Investigate the data
 - Clean the data
 - Split the data
+
+## Quiz W4 Monday
+Will go over chapters 1 and 2.
+The quiz will be open book.
